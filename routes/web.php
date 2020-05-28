@@ -34,7 +34,6 @@ Route::get('/userconroller/{id}/delete','userconroller@destroy');
 // route of course controller
 Route::get('/add_course','CourseController@add_course');
 Route::post('/add_course','CourseController@store');
-
 Route::get('/CourseController/edit','CourseController@edit');
 Route::post('/CourseController/{id}','CourseController@update');
 Route::get('/CourseController/{id}/delete','CourseController@destroy');
@@ -44,3 +43,12 @@ Route::get('/CourseController/{id}/delete','CourseController@destroy');
 
 Route::get('/course_instructor/retrive_instuctors_courses','courseinstructor@retrive_instuctors_courses');
 Route::post('/course_instructor/assign_course_instructor','courseinstructor@assign_course_instructor');
+
+
+
+
+// route of student controller
+
+Route::get('/student/show_courses','studentcontroller@show_courses');
+Route::post('/student/regest_courses','studentcontroller@regist_courses');
+Route::get('/student/show_grade','studentcontroller@show_grade');
