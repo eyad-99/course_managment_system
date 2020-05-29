@@ -57,4 +57,14 @@ class studentcontroller extends Controller
   	
   }
 
+   public function show_grade()
+  {
+    $student_id=session('data');
+    $grades=student::find($student_id)->courses()->get();
+
+    return view('student_grade',compact('grades'));
+    
+      # code...
+    }
+
 }

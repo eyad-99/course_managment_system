@@ -20,7 +20,7 @@
     
 
     
-	<input type="number" min="2" max="3" name="type" value="{{$instance->type}}" class="form-control mb-4" placeholder="Type">
+	<input type="text"  name="type" value="{{$instance->type}}" class="form-control mb-4" placeholder="Type" readonly>
     <br>
    
 

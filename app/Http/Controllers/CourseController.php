@@ -89,7 +89,20 @@ class CourseController extends Controller
      */
     public function destroy($id){
 
-        $course_instance=course::find($id);
+         $course_instance=course::find($id);
+
+         $course_student=course::find($id)->students()->get();
+            foreach ($course_student as $instance) 
+            {
+                $instance->pivot->delete();
+            }
+
+             $course_instructor=course::find($id)->instructors()->get();
+             
+              foreach ($course_instructor as $instance) {
+                $instance->pivot->delete();
+                # code...
+            }
         $course_instance->delete();
         return view('admin');
     }
