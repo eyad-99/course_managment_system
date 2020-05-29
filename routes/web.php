@@ -14,10 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-	
+    
     return view('login');
 });
-
 
 //routes of log controller
 Route::post('/log/login','log@login');
@@ -34,9 +33,16 @@ Route::get('/userconroller/{id}/delete','userconroller@destroy');
 // route of course controller
 Route::get('/add_course','CourseController@add_course');
 Route::post('/add_course','CourseController@store');
+
 Route::get('/CourseController/edit','CourseController@edit');
 Route::post('/CourseController/{id}','CourseController@update');
 Route::get('/CourseController/{id}/delete','CourseController@destroy');
+
+// route of student controller
+
+Route::get('/student/show_courses','studentcontroller@show_courses');
+Route::post('/student/regest_courses','studentcontroller@regist_courses');
+Route::get('/student/show_grade','studentcontroller@show_grade');
 
 
 //route of course_instructor controller
@@ -45,10 +51,7 @@ Route::get('/course_instructor/retrive_instuctors_courses','courseinstructor@ret
 Route::post('/course_instructor/assign_course_instructor','courseinstructor@assign_course_instructor');
 
 
-
-
-// route of student controller
-
-Route::get('/student/show_courses','studentcontroller@show_courses');
-Route::post('/student/regest_courses','studentcontroller@regist_courses');
-Route::get('/student/show_grade','studentcontroller@show_grade');
+// route of instructor controller
+Route::post('/instructor/show_student','constructor_controller@show_student');
+Route::post('/instructor/submit_grade','constructor_controller@submit_grade');
+Route::get('/instructor/get_courses','constructor_controller@get_courses');
